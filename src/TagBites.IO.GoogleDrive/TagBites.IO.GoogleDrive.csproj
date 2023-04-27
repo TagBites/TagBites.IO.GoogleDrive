@@ -1,0 +1,55 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- Package info -->
+  <PropertyGroup>
+    <PackageId>TagBites.IO.GoogleDrive</PackageId>
+    <Product>TagBites.IO.GoogleDrive</Product>
+    <Title>TagBites.IO.GoogleDrive</Title>
+
+    <Description></Description>
+    <PackageTags>file;files;system;filesystem;sync;C#;googledrive</PackageTags>
+
+    <PackageProjectUrl>https://www.tagbites.com/io</PackageProjectUrl>
+    <PackageIconUrl>https://www.tagbites.com/io/icon.png</PackageIconUrl>
+
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/TagBites/TagBites.IO.GoogleDrive.git</RepositoryUrl>
+  </PropertyGroup>
+
+  <!-- Targets -->
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <!-- Build -->
+  <PropertyGroup>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <RootNamespace>TagBites.IO.GoogleDrive</RootNamespace>
+    <LangVersion>8</LangVersion>
+  </PropertyGroup>
+
+  <!-- References -->
+  <Choose>
+    <When Condition="'$(SolutionName)' == 'TagBites.IO'">
+      <ItemGroup>
+        <ProjectReference Include="$(SolutionDir)\src\TagBites.IO\TagBites.IO.csproj" />
+      </ItemGroup>
+    </When>
+    <Otherwise>
+      <ItemGroup>
+        <PackageReference Include="TagBites.IO" Version="1.1.0" />
+      </ItemGroup>
+    </Otherwise>
+  </Choose>
+
+  <ItemGroup>
+    <PackageReference Include="Google.Apis.Drive.v3" Version="1.57.0.2746" />
+  </ItemGroup>
+
+</Project>
